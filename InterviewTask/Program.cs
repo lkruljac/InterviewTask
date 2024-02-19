@@ -15,11 +15,13 @@ internal class Program
         Console.WriteLine($"You are using machine \"{machine.Name}\" with \"{machine.OSVersion}\" installed on it.");
         Console.WriteLine($"Current user is: \"{user.Domain}\\{user.UserName}\"");
 
-        List<LogEntry> logs = null; // How can I get all logs left by all services
-
-        var logFileDirectory = ""; // How can I get desktop folder
-
-        SaveLogs(logs, ELogFileType.JSON, logFileDirectory);
+        Console.WriteLine("Press enter to continue...");
+        Console.ReadLine();
+        
+        List<LogEntry> logs = null;
+        
+        //var logFileDirectory = "";
+        //SaveLogs(logs, ELogFileType.JSON, logFileDirectory);
     }
 
     #endregion
@@ -28,8 +30,6 @@ internal class Program
 
     private static void SaveLogs(List<LogEntry> logs, ELogFileType fileType, string logFileDirectory)
     {
-        // How can I replace this with strategy pattern?
-
         var fullPath = $"{logFileDirectory}\\namelessLogFile.{fileType.GetDescription()}";
 
         switch (fileType)
